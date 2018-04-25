@@ -3,4 +3,12 @@
 
 (function(){
   
+  var query = $("#search-query")
+  
+  query.on("keyup", (e) => {
+  
+    console.log(query.val())
+  
+  })
+  
 })()
