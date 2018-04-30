@@ -9,7 +9,9 @@ var cors = require("cors");
 var multer = require("multer");
 var upload = multer({
 dist: "uploads/"
-})
+});
+
+const filesUploads = [];
 
 // Use the middlewares with the server.
 app.use(bodyParser.json());
@@ -28,8 +30,14 @@ app.get("/", function (request, response) {
 });
 
 // Post upload file.
-app.post("/upload/file", (request, response) => {
+app.post("/upload/file", upload.single("file"), (request, response) => {
 
+  filesUploads.push({
+    size:request.file.size
+  })
+  
+  response.json(filesUploads);
+  
 })
 
 // listen for requests :)
