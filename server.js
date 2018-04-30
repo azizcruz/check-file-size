@@ -11,8 +11,6 @@ var upload = multer({
 dist: "uploads/"
 });
 
-const filesUploads = [];
-
 // Use the middlewares with the server.
 app.use(bodyParser.json());
 app.use(cors());
@@ -31,12 +29,10 @@ app.get("/", function (request, response) {
 
 // Post upload file.
 app.post("/upload/file", upload.single("file"), (request, response) => {
-
-  filesUploads.push({
-    size:request.file.size
-  })
   
-  response.json(filesUploads);
+  response.json({
+    size:request.file.size
+  });
   
 })
 
