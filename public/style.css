@@ -12,7 +12,6 @@ body {
 }
 
 h1 {
-  font-style: italic;
   color: #373fff;
 }
 
@@ -31,6 +30,12 @@ button {
   border: 1px solid grey;
   box-shadow: 2px 2px teal;
   cursor: pointer;
+}
+
+form {
+  background-color: #FFF;
+  padding: 20px;
+  border-radius: 8px;
 }
 
 button:hover {
