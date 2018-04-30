@@ -4,6 +4,17 @@
 // init project
 var express = require('express');
 var app = express();
+var bodyParser = require("body-parser");
+var cors = require("cors");
+var multer = require("multer");
+var upload = multer({
+dist: "uploads/"
+})
+
+// Use the middlewares with the server.
+app.use(bodyParser.json());
+app.use(cors());
+
 
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
@@ -15,6 +26,11 @@ app.use(express.static('public'));
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
+
+// Post upload file.
+app.post("/upload/file", (request, response) => {
+
+})
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
